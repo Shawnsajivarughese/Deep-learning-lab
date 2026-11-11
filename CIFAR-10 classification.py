@@ -72,9 +72,10 @@ pred = best_model.predict(x_test[:5], verbose=0)
 
 # Basic plot
 for i in range(5):
+    predicted = pred[i].argmax()
+    actual = y_test[i].argmax()
+
     plt.imshow(x_test[i])
-    plt.title("Pred: " + class_names[np.argmax(pred[i])] +
-              "\nActual: " + class_names[np.argmax(y_test[i])])
-    plt.axis("off")
+    plt.title("Pred: " + class_names[predicted] + ", Actual: " + class_names[actual])
     plt.axis("off")
     plt.show()
